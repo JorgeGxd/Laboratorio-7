@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 /*
@@ -322,7 +323,11 @@ public class Principal extends javax.swing.JFrame {
                 btn.setText(this.letter);
                 this.ConstructMat();
                 if(this.help.HorizontalLine(this.letter, this.mat) || this.help.VerticalLine(letter, mat) || this.help.CrossLine(letter, mat)){
-                    showMessageDialog(null, "Felicidades el jugador 1 ha ganado!");
+                    String[] buttons = { "Reiniciar", "Salir" };
+
+                    int rc = JOptionPane.showOptionDialog(null, "Felicidades el jugador 1 ha ganado la partida :D", "Message", JOptionPane.WARNING_MESSAGE, 0, null, buttons, buttons[1]);
+                    if(rc == 0) this.CleanTable();
+                    else System.exit(0);
                 }
                 this.letter = "O";
                 this.player = false;
@@ -341,7 +346,11 @@ public class Principal extends javax.swing.JFrame {
                 btn.setText(this.letter);
                 this.ConstructMat();
                 if(this.help.HorizontalLine(this.letter, this.mat) || this.help.VerticalLine(letter, mat) || this.help.CrossLine(letter, mat)){
-                    showMessageDialog(null, "Felicidades el jugador 2 ha ganado!");
+                    String[] buttons = { "Reiniciar", "Salir" };
+
+                    int rc = JOptionPane.showOptionDialog(null, "Felicidades el jugador 2 ha ganado la partida :D", "Message", JOptionPane.WARNING_MESSAGE, 0, null, buttons, buttons[1]);
+                    if(rc == 0) this.CleanTable();
+                    else System.exit(0);
                 }
                 this.letter = "X";
                 this.player = true;
